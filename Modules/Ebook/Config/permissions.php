@@ -1,0 +1,16 @@
+<?php
+
+return [
+    'admin.ebooks' => [
+        'index' => 'ebook::permissions.index',
+        'create' => 'ebook::permissions.create',
+        'edit' => 'ebook::permissions.edit',
+        'destroy' => 'ebook::permissions.destroy',
+        'enable' => 'ebook::permissions.enable',
+        'viewpurchases' => 'ebook::permissions.viewpurchases',
+    ],
+    'admin.reportedebooks' => [
+        'index' => 'ebook::permissions.reportedindex',
+        'destroy' => 'ebook::permissions.reporteddestroy',
+    ],
+];

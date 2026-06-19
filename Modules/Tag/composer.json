@@ -1,0 +1,15 @@
+{
+    "name": "ci/tag",
+    "description": "Airge NG Tag Module.",
+    "authors": [
+        {
+            "name": "Airdge Team",
+            "email": "airondev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Tag\\": ""
+        }
+    }
+}

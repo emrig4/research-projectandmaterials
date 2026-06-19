@@ -1,0 +1,15 @@
+{
+    "name": "Blog",
+    "alias": "blog",
+    "description": "Airdge NG Blog Module., depends on Binshop blog package",
+    "keywords": [],
+    "active": 1,
+    "order": 100,
+    "providers": [
+        "Modules\\Blog\\Providers\\BlogServiceProvider",
+        "Modules\\Blog\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

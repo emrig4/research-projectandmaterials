@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta name="author" content="Kien trong" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/960.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/prettyPhoto.css" />
+    <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
+    <script type="text/javascript" src="js/jquery.localscroll-min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // $("ul.tabs").tabs(".content_element",{
+            //     effect: 'default',
+            //     history: true
+            // });
+            $("a[rel^='prettyPhoto']").prettyPhoto({
+                theme: 'light_rounded',
+                slideshow : true
+			});
+            $('a[href=#main]').click(function(){
+                $('html, body').animate({scrollTop:0},500);
+                return false;
+            });
+
+
+            $('#sidebar').localScroll();
+            selected_child = false;
+            h5 = false
+
+            $("#sidebar ul li h5").click(function(){
+                if (h5) h5.removeClass("selected");
+                $(this).addClass("selected");
+                h5 = $(this);
+                $(".active").slideUp().removeClass("active");
+                $(this).next().slideDown().addClass("active");
+                activeli = $(this).parent();
+                return false;
+            });
+
+            $("#sidebar ul li ul li").click(function(){
+                if (selected_child) selected_child.removeClass("selected");
+                $(this).addClass("selected");
+                selected_child = $(this);
+                return false;
+            });
+
+
+            var topHeight = $('#sidebar').offset().top;
+            $(window).scroll( function() {
+            if($(document).scrollTop() > topHeight){
+                $('#sidebar').css({position: 'fixed', marginTop: -topHeight});
+            }else{
+                $('#sidebar').css({position: 'absolute', marginTop: 0});
+            }
+            });
+        });
+    </script>
+	<title>EDU Documentation</title>
+</head>
+
+<body>
+
+<div id="header" class="container_12">
+    <h2>EDU Wordpress Theme Documentation v1.0 by SmoothThemes</h2>
+    <div id="header_left" class="grid_4">
+        <div class="inner">
+            <p>Created: Date Created<br />
+            By: SmoothThemes<br />
+            <a href="http://themeforest.net/user/SmoothThemes">http://themeforest.net/user/SmoothThemes</a></p>
+        </div>
+    </div>
+    <div id="header_right" class="grid_8">
+        <div class="inner">
+            <p>Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/SmoothThemes">here</a>. Thanks so much!</p>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+
+<div id="main" class="grid_12">
+    <div id="sidebar" class="grid_3 alpha" data-spy="affix" data-offset-top="200">
+        <ul class="nav tabs">
+            
+            <li><h5><a href="#installation">Installation</a></h5></li>
+            <li><h5><a href="#oneclick">One Click import data</a></h5></li>
+
+            <li><h5><a href="#videos">Video Tutorials</a></h5></li>
+
+            <li><h5><a href="#import_data">Install Example Data</a></h5></li>
+
+            <li><h5><a href="#header_">Header Settings</a></h5>
+                <ul>
+                    <li><a href="#logo">Logo</a></li>
+                    <li><a href="#other_header">Other Header Elements</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <h5><a href="#megamenu">Mega Menu Setup</a></h5>
+            </li>
+
+            <li>
+                <h5><a href="#page_builder">Page Builder</a></h5>
+            </li>
+
+            <li>
+                <h5><a href="#shortcodes">Shortcodes</a></h5>
+            </li>
+
+            <li>
+                <h5><a href="#home_setup">Homepage Setup</a></h5>
+            </li>
+
+            <li>
+                <h5><a href="#course">Course </a></h5>
+                <ul>
+                    <li><a href="#add_course">Add New Course</a></li>
+                    <li><a href="#page_course">List Course To Page</a></li>
+
+                </ul>
+            </li>
+
+            <li>
+                <h5><a href="#woocommerce">WooCommerce Setup</a></h5>
+                <ul>
+                    <li><a href="#add_shop">Create Shop Layout</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <h5><a href="#events">Events</a></h5>
+                <ul>
+                    <li><a href="#add_events">Add Events</a></li>
+                    <li><a href="#page_events">Add Events To Page</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <h5><a href="#add_blog">Add Blog Page</a></h5>
+            </li>
+
+            <li><h5><a href="#">Sidebar</a></h5>
+                <ul>
+                    <li><a href="#sidebar_create">Create Sidebar</a></li>
+                    <li><a href="#sidebar_forpage">Sidebar For Page</a></li>
+                    <li><a href="#sidebar_widget">Sidebar Widgets</a></li>
+                </ul>
+            </li>
+
+            <li><h5><a href="#">Post Thumbnail Type</a></h5>
+                <ul>
+                    <li class=""><a href="#thumbnail_img">Features Thumbnail</a></li>
+                    <li class=""><a href="#thumbnail_slider">Thumbnail Slider</a></li>
+                    <li class=""><a href="#thumbnail_video">Thumbnail Video</a></li>
+                </ul>
+            </li>
+
+            <li><h5><a href="#javascripts">Javascripts</a></h5></li>
+
+            <li><h5><a href="#psd">PSD files</a></h5></li>
+
+        </ul>
+    </div>
+    <div id="content" class="grid_9 omega">
+
+        <div id="installation" class="content_element">
+            <h4 class="option_title">Installation </h4>
+            <p>Unzip the file you download after purchase . The following files and folders will be in the unzipped file:</p>
+            <ul>
+                <li>Edu.zip</li>
+                <li>Licensing</li>
+                <li>Documentation</li>
+            </ul>
+            <p>The theme can be uploaded in two ways:</p>
+            <ul>
+                <li>FTP upload: Using your FTP program, upload the non-zipped Edu folder into the <b>/wp-content/themes/</b> folder on your server.</li>
+                <li>WordPress upload: Navigate to <b>Appearance > Add New Themes > Upload</b>. Go to browse, and select the zipped <b>Edu</b> folder. Hit Install Now and the theme will be uploaded and installed.</li>
+            </ul>
+            <p>Once the theme is uploaded, you need to activate it. Go to <b>Appearance > Themes</b> and activate <b>Edu</b> theme.</p>
+            <p>If you need help installing Wordpress see the link here : <a href="http://codex.wordpress.org/Installing_WordPress">http://codex.wordpress.org/Installing_WordPress</a></p>
+            <p class="note"> After the install finish, go to Edu theme setting page, then cick Save All Change to import default value to database.</p>
+            <h5 id="import_data">Install Sample Data: </h5>
+            <p>Edu has included wordpress XML demo file, you can see at /assets/sample-data/ . Following this step to import demo data to your site: </p>
+            <p>
+                <a href="images/import1.png" rel="prettyPhoto"><img src="images/import1.png" alt="" /></a>
+            </p>
+            <p>
+                <a href="images/import2.png" rel="prettyPhoto"><img src="images/import2.png" alt="" /></a>
+            </p>
+            <ol>
+                <li>Go to <strong>Tools > Import</strong></li>
+                <li>Select XML demo file from /assets/sample-data/</li>
+                <li>Submit Upload file and import.</li>
+                <li>Assign posts to an exitsting account.</li>
+                <li>Check to Download and import file attachments</li>
+                <li>Submit and wait when WP tools download attachments to your wordpress site</li>
+            </ol>
+
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div><!-- / content_element -->
+
+
+        <div id="oneclick" class="content_element">
+            <h4 class="option_title">One Click to import data</h4>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/yhiy3RIJ_xg" frameborder="0" allowfullscreen></iframe>
+            <ol>
+                <li>Goto: Appearance > <strong>Import Demo data</strong> and click "Import" button and wait</li>
+                <li>After data imported, some pages show nothing, please go to edit page and hit update.</li>
+                <li>Goto Appearance -> menu to re config menus</li>
+            </ol>
+        </div>
+
+
+        <!-- Video Tutorials --> 
+        <div id="videos" class="content_element">
+            <h4 class="option_title">Video Tutorials</h4>
+            <p>Please go here and find Sonec video tutorial playlist : <a href="http://www.youtube.com/user/SmoothThemes">http://www.youtube.com/SmoothThemes</a></p>
+    
+        </div>
+
+        
+
+
+        <div id="header_" class="content_element">
+            <h4 class="option_title">header settings</h4>
+            
+            <h5 id="logo">Logo</h5>
+            <p>
+                <a href="images/logo.png" rel="prettyPhoto"><img src="images/logo.png" alt="" /></a>
+            </p>
+            <ol>
+                <li>Choose Edu Settings</li>
+                <li>Choose Logo</li>
+                <li>Choose Select Image</li>
+                <li>Custom padding logo</li>
+                <li>Upload Login logo</li>
+                <li>Custom widht & height login logo</li>
+                <li>Save changes</li>
+            </ol>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+            
+            <h5 id="other_header">other header elements</h5>
+            <p>
+                <a href="images/other-header.png" rel="prettyPhoto"><img src="images/other-header.png" alt="" /></a>
+            </p>
+            <ol>
+                <li>Choose Edu settings</li>
+                <li>Choose Favicon</li>
+                <li>Upload</li>
+                <li>Save changes</li>
+            </ol>
+            
+            <h5>Top Menu</h5>
+            <p>
+                <a href="images/top-menu.png" rel="prettyPhoto"><img src="images/top-menu.png" alt="" /></a>
+            </p>
+            <ol>
+                <li>Choose Menu</li>
+                <li>Choose Top Menu position</li>
+                <li>Add some page or post to menu</li>
+                <li>Tick is Top menu</li>
+                <li>Save menu</li>
+            </ol>
+            
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+            
+            <h5>Top header widget</h5>
+            <p>
+                <a href="images/header-others.png" rel="prettyPhoto"><img src="images/header-others.png" alt="" /></a>
+            </p>
+            <ol>
+                <li>Choose Edu options</li>
+                <li>Choose Header</li>
+                <li>Add phone number</li>
+                <li>Add description</li>
+                <li>Custom background</li>
+                <li>Save change</li>
+            </ol>
+            
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div>
+
+        <div id="megamenu" class="content_element">
+            <h4 class="option_title">Megamenu Setup</h4>
+            <p>If you use stMegaMenu plugin, when active it the first thing to do is go to stMenu setting under Appearance tab. At the bottom select which menu will apply for mega menu</p>
+            <p><a href="images/megamenu-setting.png" rel="prettyPhoto"><img src="images/megamenu-setting.png" alt="" /></a></p>
+            <h4 class="option_title">Setup menu</h4>
+
+            <p><a href="images/megamenu_overview.png" rel="prettyPhoto"><img src="images/megamenu_overview.png" alt="" /></a></p>
+            <p><a href="images/bootstrap-grid.png" rel="prettyPhoto"><img src="images/bootstrap-grid.png" alt="" /></a></p>
+            <p>Mega menu is follow by the 12 columns grid.</p>
+            <ol>
+                <li>Look at the Shortcodes menu items, it's the first level of menu, check "use as Mega Menu" if you want it to be Mega Menu display</li>
+                <li>Select the width for mega menu display, it's follow by 12 columns grid ( look at the grid image above ). If you select wrap columns is 12 - it's 12 columns grid ( 1170px )</li>
+                <li>Now go for child items, imagine your megamenu containt 4 columns as the image above. Each column need an menu item to wrap it. So the logic should be: 4 * 3 = 12 . Each menu columns need 3 columns wrap. ( NOTE: You can select what number as you want - see mega menu video tutorials)</li>
+            </ol>
+            
+            <h4 class="option_title">Shortcodes for mega menu</h4>
+            <p><a href="images/megamenu_use_title.png" rel="prettyPhoto"><img src="images/megamenu_use_title.png" alt="" /></a></p>
+            <p>If you want use shortcode in mega menu, follow these steps below:</p>
+            <ol>
+                <li>Check "Use as Title Menu", the menu item setting will display like the image above.</li>
+                <li>Here you go, the caption field is a column title</li>
+                <li>Paste your shortcode to Description field, and it should display</li>
+            </ol>
+            
+        </div>
+
+        <div id="page_builder" class="content_element">
+            
+            <h4 class="option_title">Page Builder Overview</h4>
+            <p><a href="images/page-builder.jpg" rel="prettyPhoto"><img src="images/page-builder.jpg" alt="" /></a></p>
+            <p>WordPress has evolved into a fully functional CMS. Page Builder completes the transition by giving you a way to create responsive column layouts using the widgets you know and love.</p>
+            <p>With 30+ builder items, you will have the flexible to display your content to the page.</p>
+            <p>Please refer to page builder video tutorials + import sample data to understand how it works.</p>
+
+        </div>
+
+        <div id="shortcodes" class="content_element">
+            
+            <h4 class="option_title">Shortcode Overview</h4>
+            <p><a href="images/shortcodes.png" rel="prettyPhoto"><img src="images/shortcodes.png" alt="" /></a></p>
+            <p>Look at the shortcode overview image above, it's the same with builder items with the same UI, that way you will have the flexible to display your content in post, not only page.</p>
+            <p>The setting for shortcodes is the same with builder items. So please refer to page builder video tutorials.</p>
+
+        </div>
+        
+        
+        <div id="home_setup">
+            <h4 class="option_title">CREATE AND SET HOMEPAGE</h4>
+            <p>First, Create a new page, using page builder to built homepage content, then go to Settings > Reading and choose that page as Front page.</p>
+            <p>
+                <a href="images/home.png" rel="prettyPhoto"><img src="images/home.png" alt="" /></a>
+                <a href="images/home2.png" rel="prettyPhoto"><img src="images/home2.png" alt="" /></a>
+            </p>
+            
+            <ol>
+                <li>Add new page</li>
+                <li>Choose switch to Builder</li>
+                <li>Choose Layout for page</li>
+                <li>Choose type item to add</li>
+                <li>Add Layout items</li>
+                <li>Add others items</li>
+                <li>Choose template page</li>
+                <li>Publish</li>
+            </ol>
+            
+            <p>
+                <a href="images/home3.png" rel="prettyPhoto"><img src="images/home3.png" alt="" /></a>
+            </p>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div>
+        
+        
+        <div id="course">
+            <h4 class="option_title">Course</h4>
+            <p>
+                <a href="images/course1.png" rel="prettyPhoto"><img src="images/course1.png" alt="" /></a>
+                <a href="images/course3.png" rel="prettyPhoto"><img src="images/course3.png" alt="" /></a>
+                <a href="images/course2.png" rel="prettyPhoto"><img src="images/course2.png" alt="" /></a>
+            </p>
+            
+            <ol>
+                <li>Add new Course post</li>
+                <li>Add items builder</li>
+                <li>Add Course item in Page builder</li>
+            </ol>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div>
+        
+        
+        
+        <div id="add_shop">
+            <h4 class="option_title">Woocommerce Setup</h4>
+            
+            <p>
+                <a href="images/woocomerce.png" rel="prettyPhoto"><img src="images/woocomerce.png" alt="" /></a>
+            </p>
+            <ol>
+                <li>Choose Plugins => Add new </li>
+                <li>Search Woocomerce plugin</li>
+                <li>Hit install</li>
+            </ol>
+            
+            
+            
+            <h5>Shop Layout</h5>
+            
+            <p>
+                <a href="images/shop-layout.png" rel="prettyPhoto"><img src="images/shop-layout.png" alt="" /></a>
+            </p>
+            <ol>
+                <li>Choose layout for shop page</li>
+                <li>Choose number of columns to show products</li>
+                <li>Choose number of products to show</li>
+            </ol>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div>
+        
+        
+        <div id="add_events">
+            <h4 class="option_title">Add Events</h4>
+            <p>
+                <a href="images/add-event.png" rel="prettyPhoto"><img src="images/add-event.png" alt="" /></a>
+            </p>
+            
+            <ol>
+                <li>Choose Add new event</li>
+                <li>Enter event title</li>
+                <li>Enter content event</li>
+                <li>Choose start date event</li>
+                <li>Enter caption feature image</li>
+                <li>Publish</li>
+            </ol>
+            
+            
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+            
+            
+            <h5 id="page_events">Add Events to page</h5>
+            <p>
+                <a href="images/event-to-page.png" rel="prettyPhoto"><img src="images/event-to-page.png" alt="" /></a>
+            </p>
+            <ol>
+                <li>Choose Page Builder type is Content Elements</li>
+                <li>Click "Events Box" item</li>
+            </ol>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div>
+        
+        
+        <div id="add_blog">
+            <h4 class="option_title">Add Blog to Page</h4>
+            <p>
+                <a href="images/add_blog.png" rel="prettyPhoto"><img src="images/add_blog.png"  /></a>
+            </p>
+            
+            <ol>
+                <li>Choose Page Builder type is Posts Elements</li>
+                <li>Click "Blog" item</li>
+                <li>Update</li>
+            </ol>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div>
+        
+        <div id="sidebar_create">
+            <h4 class="option_title">Create Sidebar</h4>
+            <p>By default Edu come with some sidebar for default-sidebar, default-course-sidebar, default-event-sidebar, default-product-sidebar, header-right and footer. To create another sidebar please follow the picture below :</p>
+            <p>
+                <a href="images/create-sidebar.png" rel="prettyPhoto"><img src="images/create-sidebar.png"  /></a>
+            </p>
+            
+            <ol>
+                <li>Enter Widget Area title</li>
+                <li>Click Add Widget button</li>
+            </ol>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+            
+            
+            <h5 id="sidebar_forpage">Sidebar for page</h5>
+            <p>Go to Page edit page and you will see the section for select sidebar for page.</p>
+            <p>
+                <a href="images/sidebar-for-page.png" rel="prettyPhoto"><img src="images/sidebar-for-page.png"  /></a>
+            </p>
+            
+            <h5 id="sidebar_widget">Sidebar Widgets</h5>
+            <p>The sidebar you create in above section will appear at right side of this page. Try dragging the widget in side the sidebar box.</p>
+            <p>
+                <a href="images/widgets.png" rel="prettyPhoto"><img src="images/widgets.png" /></a>
+            
+            </p>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div>
+        
+        <div id="thumbnail_img">
+        
+            <h4 class="option_title">Features Thumbnail</h4>
+            <p>
+                <a href="images/feature_img.png" rel="prettyPhoto"><img src="images/feature_img.png" /></a>
+            </p>
+            
+            <h5 id="thumbnail_slider">Thumbnail Slider</h5>
+            <p>To create post with thumbnail slider, follow step in the picture bellow:</p>
+            <p>
+                <a href="images/thumb_slider.png" rel="prettyPhoto"><img src="images/thumb_slider.png" /></a>
+            </p>
+            
+            
+            <h5 id="thumbnail_video">Thumbnail Video</h5>
+            <p>Current Edu support video from youtube and vimeo. Just put the video URL to input box.</p>
+            <p>
+                <a href="images/thumb_video.png" rel="prettyPhoto"><img src="images/thumb_video.png" /></a>
+            </p>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div>
+        
+        
+        
+                
+        <div id="javascripts" class="content_element">
+            <h4 class="option_title">Javascripts</h4>
+            <p>This theme contains many advanced jQuery functions and libraties.</p>
+            <p>All javascript files (at assets/js/ folder) :</p>
+            <ul>
+                <li><b>jquery-1.10.1.min.min.js</b></li>
+                <li><b>jquery.prettyPhoto.js</b></li>
+                <li><b>jquery.fitvids.js?ver=1.0</b></li>
+                <li><b>jquery.flexslider.js?ver=1.0</b></li>
+                <li><b>ddsmoothmenu.js</b></li>
+                <li><b>imagesLoaded.js</b></li>
+                <li><b>jquery.black-and-white.js</b></li>
+                <li><b>jquery.flip.min.js</b></li>
+                <li><b>supersized.3.2.6.js</b></li>
+                <li><b>jquery.touchwipe.min.js</b></li>
+                <li><b>jquery.magnific-popup.js</b></li>
+                <li><b>kenburns.js</b></li>
+                <li><b>Edu.js</b></li>
+            </ul>
+            <p>If you feel the need to customize any functions for any reason, open and edit <i>custom.js</i> file in your theme's scripts directory /wp-content/themes/Edu/assets/js/</p>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div><!-- / content_element -->
+        
+
+
+        
+        <div id="psd" class="content_element">
+            <p>There's no PSD file for EDU</p>
+            <div class="divider_top"><a style="float: right;" href="#main">Back to top</a></div>
+        </div><!-- / content_element -->
+        
+        
+    </div>
+    
+    
+    <div class="clear"></div>
+</div> <!-- /container_12 -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+    "name": "ci/service",
+    "description": "The CynoInfotech Service Module.",
+    "authors": [
+        {
+            "name": "Cynoinfotech Team",
+            "email": "info@cynoinfotech.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Service\\": ""
+        }
+    }
+}

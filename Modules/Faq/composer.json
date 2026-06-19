@@ -1,0 +1,15 @@
+{
+    "name": "ci/faq",
+    "description": "Airge NG FAQ Module.",
+    "authors": [
+        {
+            "name": "Airdge Team",
+            "email": "airondev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Faq\\": ""
+        }
+    }
+}

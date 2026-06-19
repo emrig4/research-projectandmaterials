@@ -1,0 +1,6 @@
+{
+    "name": "Faq",
+    "alias": "faq",
+    "description": "The Airdge NG FAQ Module.",
+    "order": 100
+}

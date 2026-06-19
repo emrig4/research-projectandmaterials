@@ -1,0 +1,10 @@
+{
+    "name": "Service",
+    "alias": "service",
+    "description": "The CynoInfotech Service Module.",
+    "order": 100,
+    "providers": [
+        "Modules\\Service\\Providers\\ServiceServiceProvider",
+        "Modules\\Service\\Providers\\EventServiceProvider"
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "name": "airdge/blog",
+    "description": "Airdge NG Blog Module, depends on binshop blog package",
+    "authors": [
+        {
+            "name": "Airdge NG  Team",
+            "email": "airondev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Blog\\": ""
+        }
+    }
+}

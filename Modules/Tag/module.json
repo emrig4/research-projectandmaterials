@@ -1,0 +1,6 @@
+{
+    "name": "Tag",
+    "alias": "tag",
+    "description": "The Airdge NG Tag Module.",
+    "order": 100
+}

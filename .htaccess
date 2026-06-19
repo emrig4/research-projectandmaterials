@@ -1,0 +1,8 @@
+  
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+lsapi_phpini /home/projgqic/public_html/php.ini
+RewriteCond %{HTTP_HOST} ^www\.projectandmaterials\.com$
+RewriteRule ^/?$ "https\:\/\/projectandmaterials\.com\/" [R=301,L]

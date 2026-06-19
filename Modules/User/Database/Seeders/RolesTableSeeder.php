@@ -50,6 +50,10 @@ class RolesTableSeeder extends Seeder
             'admin.media.index' => true,
             'admin.media.create' => true,
             'admin.media.destroy' => true,
+            // files
+            'admin.files.index' => true,
+            'admin.files.create' => true,
+            'admin.files.destroy' => true,
             // pages
             'admin.pages.index' => true,
             'admin.pages.create' => true,
@@ -75,6 +79,9 @@ class RolesTableSeeder extends Seeder
             'admin.reviews.create' => true,
             'admin.reviews.edit' => true,
             'admin.reviews.destroy' => true,
+            // importer
+            'admin.importer.index' => true,
+            'admin.importer.create' => true,
             // sliders
             'admin.sliders.index' => true,
             'admin.sliders.create' => true,
@@ -85,6 +92,26 @@ class RolesTableSeeder extends Seeder
             'admin.categories.create' => true,
             'admin.categories.edit' => true,
             'admin.categories.destroy' => true,
+            // authors
+            'admin.authors.index' => true,
+            'admin.authors.create' => true,
+            'admin.authors.edit' => true,
+            'admin.authors.destroy' => true,
+            // services - FIXED
+            'admin.services.index' => true,
+            'admin.services.create' => true,
+            'admin.services.edit' => true,
+            'admin.services.destroy' => true,
+            // service requests - FIXED
+            'admin.servicerequests.index' => true,
+            'admin.servicerequests.create' => true,
+            'admin.servicerequests.edit' => true,
+            'admin.servicerequests.destroy' => true,
+            // request proposals - FIXED
+            'admin.requestproposals.index' => true,
+            'admin.requestproposals.create' => true,
+            'admin.requestproposals.edit' => true,
+            'admin.requestproposals.destroy' => true,
             // Activity
             'admin.activity.index' => true,
             
